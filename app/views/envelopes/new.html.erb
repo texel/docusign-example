@@ -4,6 +4,22 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :account_id, 'Account ID' %><br />
+    <%= f.text_field :account_id %>
+  </p>
+  <p>
+    <%= f.label :recipient %><br />
+    <%= f.text_field :recipient %>
+  </p>
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :email_blurb %><br />
+    <%= f.text_field :email_blurb %>
+  </p>
+  <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>

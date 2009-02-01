@@ -1,7 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  account_id: MyString
+  recipient: MyString
+  subject: MyString
+  email_blurb: MyString
+  document_file_name: MyString
+  document_content_type: MyString
+  document_file_size: 1
+  document_updated_at: 2009-02-01 12:15:09
+  state: MyString
+
+two:
+  account_id: MyString
+  recipient: MyString
+  subject: MyString
+  email_blurb: MyString
+  document_file_name: MyString
+  document_content_type: MyString
+  document_file_size: 1
+  document_updated_at: 2009-02-01 12:15:09
+  state: MyString

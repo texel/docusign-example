@@ -4,6 +4,42 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :account_id %><br />
+    <%= f.text_field :account_id %>
+  </p>
+  <p>
+    <%= f.label :recipient %><br />
+    <%= f.text_field :recipient %>
+  </p>
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </p>
+  <p>
+    <%= f.label :email_blurb %><br />
+    <%= f.text_field :email_blurb %>
+  </p>
+  <p>
+    <%= f.label :document_file_name %><br />
+    <%= f.text_field :document_file_name %>
+  </p>
+  <p>
+    <%= f.label :document_content_type %><br />
+    <%= f.text_field :document_content_type %>
+  </p>
+  <p>
+    <%= f.label :document_file_size %><br />
+    <%= f.text_field :document_file_size %>
+  </p>
+  <p>
+    <%= f.label :document_updated_at %><br />
+    <%= f.datetime_select :document_updated_at %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>

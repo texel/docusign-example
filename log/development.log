@@ -110,3 +110,59 @@ Migrating to CreateEnvelopes (20090201192707)
 Migrating to CreateEnvelopes (20090201192707)
   [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "envelopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "account_id" varchar(255), "recipient" varchar(255), "subject" varchar(255), "email_blurb" varchar(255), "document_file_name" varchar(255), "document_content_type" varchar(255), "document_file_size" integer, "document_updated_at" datetime, "state" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
   [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090201192707')[0m
+
+
+Processing EnvelopesController#index (for 127.0.0.1 at 2009-02-01 12:05:25) [GET]
+  [4;36;1mEnvelope Load (0.7ms)[0m   [0;1mSELECT * FROM "envelopes" [0m
+Rendering template within layouts/envelopes
+Rendering envelopes/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://www.example.com/envelopes]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:05:32) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:08:38) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:12:53) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:15:33) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 103ms (View: 98, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:16:37) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:16:43) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#new (for 127.0.0.1 at 2009-02-01 12:17:30) [GET]
+Rendering template within layouts/envelopes
+Rendering envelopes/new
+Completed in 18ms (View: 11, DB: 0) | 200 OK [http://www.example.com/envelopes/new]
+
+
+Processing EnvelopesController#index (for 127.0.0.1 at 2009-02-01 12:17:47) [GET]
+  [4;36;1mEnvelope Load (0.3ms)[0m   [0;1mSELECT * FROM "envelopes" [0m
+Rendering template within layouts/envelopes
+Rendering envelopes/index
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://www.example.com/envelopes]
