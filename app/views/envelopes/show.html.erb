@@ -4,11 +4,13 @@
 </p>
 
 <p>
-  <b>Recipient:</b>
+  <b>Recipient Name:</b>
   <%=h @envelope.recipient_name %>
+</p>
+<p>
+  <b>Recipient Email:</b>
   <%=h @envelope.recipient_email %>
 </p>
-
 <p>
   <b>Subject:</b>
   <%=h @envelope.subject %>
@@ -43,7 +45,16 @@
   <b>State:</b>
   <%=h @envelope.state %>
 </p>
-
+<p>
+  <b>Signing Status:</b>
+  <%- if @envelope.ds_status -%>
+    <%=h @envelope.ds_status %> (last updated <%= @envelope.status_updated_at %>)
+  <%- else -%>
+    n/a
+  <%- end -%>
+</p>
 
 <%= link_to 'Edit', edit_envelope_path(@envelope) %> |
-<%= link_to 'Back', envelopes_path %>
+<%= link_to 'Back', envelopes_path %> |
+<%= link_to 'Refresh Status', :action => 'refresh_status' %>
+

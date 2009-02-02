@@ -74,22 +74,42 @@ class EnvelopesController < ApplicationController
   def send_envelope
     @envelope = Envelope.find(params[:id])
     
-    @ds_envelope = @envelope.to_ds_envelope
+    respond_to do |wants|
+      if @envelope.pending?
+        @ds_envelope = @envelope.to_ds_envelope
+
+        prepare_ds_connection
+
+        @response = @connection.createEnvelope :envelope => @ds_envelope
+
+        if @response.is_a?(Docusign::CreateEnvelopeResponse)
+          @result = @response.createEnvelopeResult
+          @envelope.ds_id = @result.envelopeID
+          @envelope.ds_status = @result.status # We're only tracking one signer with this app.
+          @envelope.status_updated_at = Time.now
+          @envelope.send_envelope! # Trigger state change
+        end
         
-    @connection = Docusign::Base.login(
-      :user_name    => Docusign::Config[:user_name],
-      :password     => Docusign::Config[:password],
-      :endpoint_url => Docusign::Config[:default_endpoint_url],
-    )
-    
-    @response = @connection.createEnvelope :envelope => @ds_envelope
-    
-    if @response.is_a?(Docusign::CreateEnvelopeResponse)
-      @envelope.send_envelope! # Trigger state change
+        wants.html {  }
+      else
+        flash[:error] = "Envelope was already sent!"
+        wants.html { redirect_to :action => 'index' }
+      end
     end
+  end
+  
+  def refresh_status
+    @envelope = Envelope.find(params[:id])
+    
+    prepare_ds_connection
+    
+    @response = @connection.requestStatus :envelopeID => @envelope.ds_id
+    @result   = @response.requestStatusResult
+    @envelope.ds_status = @result.status
+    @envelope.status_updated_at = Time.now
     
     respond_to do |wants|
-      wants.html {  }
+      wants.html { render :action => 'show' }
     end
   end
 
@@ -103,5 +123,16 @@ class EnvelopesController < ApplicationController
       format.html { redirect_to(envelopes_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  protected
+  
+  def prepare_ds_connection
+    @connection = Docusign::Base.login(
+      :user_name    => Docusign::Config[:user_name],
+      :password     => Docusign::Config[:password],
+      :wiredump_dev => STDOUT,
+      :endpoint_url => Docusign::Config[:default_endpoint_url]
+    )
   end
 end
