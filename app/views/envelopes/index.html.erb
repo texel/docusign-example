@@ -20,7 +20,6 @@
     <td><%=h envelope.state %></td>
     <td><%= link_to 'Show', envelope %></td>
     <td><%= link_to 'Edit', edit_envelope_path(envelope) %></td>
-    <td><%= link_to 'Send', :action => 'send_envelope', :id => envelope if envelope.pending?  %></td>
     <td><%= link_to 'Destroy', envelope, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

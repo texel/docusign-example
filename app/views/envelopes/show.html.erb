@@ -56,5 +56,9 @@
 
 <%= link_to 'Edit', edit_envelope_path(@envelope) %> |
 <%= link_to 'Back', envelopes_path %> |
-<%= link_to 'Refresh Status', :action => 'refresh_status' %>
+<%- if @envelope.pending? -%>
+  <%= link_to 'Send', :action => 'send_envelope', :id => @envelope %>
+<%- else -%>
+  <%= link_to 'Refresh Status', :action => 'refresh_status', :id => @envelope %>
+<%- end -%>
 

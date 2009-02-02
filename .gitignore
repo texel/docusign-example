@@ -1,3 +1,4 @@
 db/*.sqlite3
 config/docusign.yml
 public/system/*
+log/*

@@ -29,7 +29,7 @@
   </p>
   <p>
     <%= f.label :state %><br />
-    <%= f.text_field :state %>
+    <%= f.select :state, Envelope.aasm_states.map(&:name).map(&:to_s) %>
   </p>
   <p>
     <%= f.submit "Update" %>

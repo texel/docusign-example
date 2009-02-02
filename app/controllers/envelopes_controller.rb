@@ -90,7 +90,7 @@ class EnvelopesController < ApplicationController
           @envelope.send_envelope! # Trigger state change
         end
         
-        wants.html {  }
+        wants.html { redirect_to @envelope }
       else
         flash[:error] = "Envelope was already sent!"
         wants.html { redirect_to :action => 'index' }
