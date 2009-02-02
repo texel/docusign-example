@@ -2,7 +2,8 @@ class CreateEnvelopes < ActiveRecord::Migration
   def self.up
     create_table :envelopes do |t|
       t.string :account_id
-      t.string :recipient
+      t.string :recipient_name
+      t.string :recipient_email
       t.string :subject
       t.string :email_blurb
       t.string :document_file_name

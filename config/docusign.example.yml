@@ -1,0 +1,13 @@
+# Docusign Credentials
+
+development:
+  user_name: '<Your Docusign Username Here>'
+  password: '<Your Docusign Password Here>'
+  account_id: '<Your Docusign Account ID Here>'
+  default_endpoint_url: 'https://demo.docusign.net/api/3.0/api.asmx'
+  
+production:
+  user_name: '<Your Docusign Username Here>'
+  password: '<Your Docusign Password Here>'
+  account_id: '<Your Docusign Account ID Here>'
+  default_endpoint_url: 'https://www.docusign.net/api/3.0/api.asmx'

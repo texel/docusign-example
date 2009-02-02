@@ -1,6 +1,6 @@
 <h1>Editing envelope</h1>
 
-<% form_for(@envelope) do |f| %>
+<% form_for(@envelope, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,8 +8,12 @@
     <%= f.text_field :account_id %>
   </p>
   <p>
-    <%= f.label :recipient %><br />
-    <%= f.text_field :recipient %>
+    <%= f.label :recipient_name %><br />
+    <%= f.text_field :recipient_name %>
+  </p>
+  <p>
+    <%= f.label :recipient_email %><br />
+    <%= f.text_field :recipient_email %>
   </p>
   <p>
     <%= f.label :subject %><br />
@@ -20,20 +24,8 @@
     <%= f.text_field :email_blurb %>
   </p>
   <p>
-    <%= f.label :document_file_name %><br />
-    <%= f.text_field :document_file_name %>
-  </p>
-  <p>
-    <%= f.label :document_content_type %><br />
-    <%= f.text_field :document_content_type %>
-  </p>
-  <p>
-    <%= f.label :document_file_size %><br />
-    <%= f.text_field :document_file_size %>
-  </p>
-  <p>
-    <%= f.label :document_updated_at %><br />
-    <%= f.datetime_select :document_updated_at %>
+    <%= f.label :document %><br />
+    <%= f.file_field :document %>
   </p>
   <p>
     <%= f.label :state %><br />

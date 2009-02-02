@@ -1,15 +1,19 @@
 <h1>New envelope</h1>
 
-<% form_for(@envelope) do |f| %>
+<% form_for(@envelope, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :account_id, 'Account ID' %><br />
-    <%= f.text_field :account_id %>
+    <%= f.text_field :account_id, :value => @envelope.account_id || Docusign::Config[:account_id] %>
   </p>
   <p>
-    <%= f.label :recipient %><br />
-    <%= f.text_field :recipient %>
+    <%= f.label :recipient_name %><br />
+    <%= f.text_field :recipient_name %>
+  </p>
+  <p>
+    <%= f.label :recipient_email %><br />
+    <%= f.text_field :recipient_email %>
   </p>
   <p>
     <%= f.label :subject %><br />
@@ -17,7 +21,11 @@
   </p>
   <p>
     <%= f.label :email_blurb %><br />
-    <%= f.text_field :email_blurb %>
+    <%= f.text_area :email_blurb, :size => "30x5" %>
+  </p>
+  <p>
+    <%= f.label :document %><br />
+    <%= f.file_field :document %>
   </p>
   <p>
     <%= f.submit "Create" %>

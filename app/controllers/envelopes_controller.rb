@@ -70,6 +70,28 @@ class EnvelopesController < ApplicationController
       end
     end
   end
+  
+  def send_envelope
+    @envelope = Envelope.find(params[:id])
+    
+    @ds_envelope = @envelope.to_ds_envelope
+        
+    @connection = Docusign::Base.login(
+      :user_name    => Docusign::Config[:user_name],
+      :password     => Docusign::Config[:password],
+      :endpoint_url => Docusign::Config[:default_endpoint_url],
+    )
+    
+    @response = @connection.createEnvelope :envelope => @ds_envelope
+    
+    if @response.is_a?(Docusign::CreateEnvelopeResponse)
+      @envelope.send_envelope! # Trigger state change
+    end
+    
+    respond_to do |wants|
+      wants.html {  }
+    end
+  end
 
   # DELETE /envelopes/1
   # DELETE /envelopes/1.xml

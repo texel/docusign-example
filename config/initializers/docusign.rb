@@ -1,0 +1,1 @@
+Docusign::Config = HashWithIndifferentAccess.new(YAML.load_file("#{RAILS_ROOT}/config/docusign.yml")[RAILS_ENV])

@@ -9,6 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20090201201509) do
+
+  create_table "envelopes", :force => true do |t|
+    t.string   "account_id"
+    t.string   "recipient_name"
+    t.string   "recipient_email"
+    t.string   "subject"
+    t.string   "email_blurb"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
