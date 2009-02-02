@@ -131,7 +131,6 @@ class EnvelopesController < ApplicationController
     @connection = Docusign::Base.login(
       :user_name    => Docusign::Config[:user_name],
       :password     => Docusign::Config[:password],
-      :wiredump_dev => STDOUT,
       :endpoint_url => Docusign::Config[:default_endpoint_url]
     )
   end
