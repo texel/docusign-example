@@ -26,8 +26,8 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   config.gem "sqlite3-ruby",    :lib => "sqlite3"
-  config.gem "rubyist-aasm",    :lib => "aasm"
-  config.gem "texel-docusign",  :lib => 'docusign'
+  config.gem "rubyist-aasm",    :lib => "aasm", :source => 'http://gems.github.com'
+  config.gem "texel-docusign",  :lib => 'docusign', :source => 'http://gems.github.com'
   # config.gem "aws-s3", :lib => "aws/s3"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
