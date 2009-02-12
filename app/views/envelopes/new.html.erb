@@ -2,11 +2,6 @@
 
 <% form_for(@envelope, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :account_id, 'Account ID' %><br />
-    <%= f.text_field :account_id, :value => @envelope.account_id || Docusign::Config[:account_id] %>
-  </p>
   <p>
     <%= f.label :recipient_name %><br />
     <%= f.text_field :recipient_name %>

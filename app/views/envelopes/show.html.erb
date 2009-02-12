@@ -45,6 +45,12 @@
   <b>State:</b>
   <%=h @envelope.state %>
 </p>
+<%- if @envelope.ds_id -%>
+  <p>
+    <b>Docusign ID:</b>
+    <%= @envelope.ds_id %>
+  </p>
+<%- end -%>
 <p>
   <b>Signing Status:</b>
   <%- if @envelope.ds_status -%>

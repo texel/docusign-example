@@ -55,7 +55,7 @@ class EnvelopesController < ApplicationController
   # POST /envelopes
   # POST /envelopes.xml
   def create
-    @envelope = Envelope.new(params[:envelope])
+    @envelope = Envelope.new(params[:envelope].merge({:account_id => Docusign::Config[:account_id]}))
 
     respond_to do |format|
       if @envelope.save
