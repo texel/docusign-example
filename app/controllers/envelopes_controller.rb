@@ -95,10 +95,10 @@ class EnvelopesController < ApplicationController
 
         prepare_ds_connection
 
-        @response = @connection.createEnvelope :envelope => @ds_envelope
-
-        if @response.is_a?(Docusign::CreateEnvelopeResponse)
-          @result = @response.createEnvelopeResult
+        @response = @connection.createAndSendEnvelope :envelope => @ds_envelope
+                
+        if @response.is_a?(Docusign::CreateAndSendEnvelopeResponse)
+          @result = @response.createAndSendEnvelopeResult
           @envelope.ds_id = @result.envelopeID
           @envelope.ds_status = @result.status # We're only tracking one signer with this app.
           @envelope.status_updated_at = Time.now
